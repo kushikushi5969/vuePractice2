@@ -21,12 +21,30 @@ export default {
 </script>
 
 <style scoped>
-.fade-enter {}
-.fade-enter-active {}
-.fade-enter-to {}
-.fade-leave {}
-.fade-leave-active {}
-.fade-leave-to {}
+.fade-enter {
+  /* 現れる時の最初の状態 */
+  opacity: 0;
+}
+.fade-enter-active {
+  /* 現れる時のトランジションの状態 */
+  transition: opacity 0.5s;
+}
+.fade-enter-to {
+  /* 現れる時の最後の状態 */
+  opacity: 1;
+}
+.fade-leave {
+  /* 消える時の最初の状態 */
+  opacity: 1;
+}
+.fade-leave-active {
+  /* 消える時のトランジションの状態 */
+  transition: opacity 0.5s;
+}
+.fade-leave-to {
+  /* 消える時の最後の状態 */
+  opacity: 0;
+}
 
 .main {
   width: 70%;
