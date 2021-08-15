@@ -4,6 +4,21 @@
     <button @click="myAnimation = 'fade'">Fade</button>
     <p>{{ myAnimation}}</p>
     <button @click="show = !show">切り替え</button>
+    <br><br>
+    <transition
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @after-enter="afterEnter"
+      @enter-cancelled="enterCancelled"
+
+      @before-leave="beforeLeave"
+      @leave="leave"
+      @after-leave="afterLeave"
+      @leave-cancelled="leaveCancelled"
+    >
+      <div class= circle v-if="show"></div>
+    </transition>
+    <br>
     <button @click="myComponent = 'ComponentA'">ComponentA</button>
     <button @click="myComponent = 'ComponentB'">ComponentB</button>
     <transition name="fade" mode="out-in">
@@ -51,12 +66,44 @@ export default {
       myAnimation: 'slide',
       myComponent: "ComponentA"
     }
+  },
+  methods: {
+    beforeEnter(el) {
+      // 現れる前
+    },
+    enter(el, done) {
+      // 現れる時
+    },
+    afterEnter(el) {
+      // 現れたあと
+    },
+    enterCancelled(el) {
+      // 現れるアニメーションがキャンセルされた時
+    },
+    beforeLeave(el) {
+      // 消える前
+    },
+    leave(el, done) {
+      // 消える時
+    },
+    afterLeave(el) {
+      // 消えた後
+    },
+    leaveCancelled(el) {
+      // 消えるアニメーションがキャンセルされた時
+    },
   }
-
 }
 </script>
 
 <style scoped>
+.circle {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  background-color: deeppink;
+  border-radius: 100px;
+}
 .fade-enter {
   /* 現れる時の最初の状態 */
   opacity: 0;
