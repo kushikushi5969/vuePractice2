@@ -4,6 +4,16 @@
     <button @click="myAnimation = 'fade'">Fade</button>
     <p>{{ myAnimation}}</p>
     <button @click="show = !show">切り替え</button>
+    <transition name="fade">
+      <p
+        v-if="show"
+        key="bye"
+      >さよなら</p>
+      <p
+        v-else
+        key="hello"
+      >こんにちは</p>
+    </transition>
     <transition
       enter-active-class="animate__animated animate__bounce"
       leave-active-class="animate__animated animate__wobble"
