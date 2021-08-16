@@ -3,6 +3,9 @@
     <button @click="myAnimation = 'slide'">Slide</button>
     <button @click="myAnimation = 'fade'">Fade</button>
     <p>{{ myAnimation}}</p>
+    <ul>
+      <li></li>
+    </ul>
     <button @click="show = !show">切り替え</button>
     <br><br>
     <transition
@@ -17,7 +20,10 @@
       @after-leave="afterLeave"
       @leave-cancelled="leaveCancelled"
     >
-      <div class= circle v-if="show"></div>
+      <div
+        class= circle
+        v-if="show"
+      ></div>
     </transition>
     <br>
     <button @click="myComponent = 'ComponentA'">ComponentA</button>
