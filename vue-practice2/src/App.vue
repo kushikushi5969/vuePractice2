@@ -152,6 +152,9 @@ export default {
   background-color: deeppink;
   border-radius: 100px;
 }
+.fade-move {
+  transition: transform 1s;
+}
 .fade-enter {
   /* 現れる時の最初の状態 */
   opacity: 0;
@@ -171,6 +174,8 @@ export default {
 .fade-leave-active {
   /* 消える時のトランジションの状態 */
   transition: opacity 0.5s;
+  position: absolute;
+  width: 200px;
 }
 .fade-leave-to {
   /* 消える時の最後の状態 */
